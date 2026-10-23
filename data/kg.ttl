@@ -1,0 +1,28 @@
+@prefix ex: <http://example.org/energy#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:RooftopPV a ex:Solution ; rdfs:label "Rooftop PV only" ;
+  ex:hasComponent ex:PVModule , ex:Inverter ;
+  ex:typicalSizeKwp 8 ; ex:typicalSelfConsumptionPct 30 ; ex:typicalCostEur 12000 ;
+  ex:constrainedBy ex:RoofArea , ex:GridConnection .
+ex:PVWithBattery a ex:Solution ; rdfs:label "Rooftop PV with battery" ;
+  ex:hasComponent ex:PVModule , ex:Inverter , ex:BatteryStorage ;
+  ex:typicalSizeKwp 8 ; ex:typicalSelfConsumptionPct 65 ; ex:typicalCostEur 20000 ;
+  ex:constrainedBy ex:RoofArea , ex:Budget .
+ex:HeatPumpHome a ex:Solution ; rdfs:label "PV with heat pump" ;
+  ex:hasComponent ex:PVModule , ex:Inverter , ex:HeatPump ;
+  ex:typicalSizeKwp 10 ; ex:typicalSelfConsumptionPct 40 ; ex:typicalCostEur 28000 ;
+  ex:constrainedBy ex:RoofArea , ex:Insulation , ex:Budget .
+
+ex:PVModule a ex:Component ; rdfs:label "PV module" ; ex:influences ex:AnnualYield , ex:Cost .
+ex:Inverter a ex:Component ; rdfs:label "Inverter" ; ex:influences ex:AnnualYield , ex:GridConnection .
+ex:BatteryStorage a ex:Component ; rdfs:label "Battery storage" ; ex:influences ex:SelfConsumption , ex:Cost .
+ex:HeatPump a ex:Component ; rdfs:label "Heat pump" ; ex:influences ex:Demand , ex:Cost .
+ex:RoofArea a ex:Constraint ; rdfs:label "Roof area" .
+ex:GridConnection a ex:Constraint ; rdfs:label "Grid connection" .
+ex:Budget a ex:Constraint ; rdfs:label "Budget" .
+ex:Insulation a ex:Constraint ; rdfs:label "Building insulation" .
+ex:AnnualYield a ex:Metric ; rdfs:label "Annual yield" .
+ex:SelfConsumption a ex:Metric ; rdfs:label "Self-consumption" .
+ex:Cost a ex:Metric ; rdfs:label "Cost" .
+ex:Demand a ex:Metric ; rdfs:label "Electricity demand" .
