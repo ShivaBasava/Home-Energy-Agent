@@ -1,0 +1,9 @@
+mcp
+chromadb
+rdflib
+ollama
+langchain
+langchain-core
+langchain-ollama
+langchain-mcp-adapters
+langgraph
