@@ -11,7 +11,7 @@ Later a LangGraph agent running on Ollama discovers and calls the tools.
 
 ## Architecture
 
-![Architecture](docs/Architecture _Home Energy Agent.drawio.svg)
+![Architecture](docs/Architecture_Home_Energy_Agent_drawio.svg)
 
 
 ## File structure of the Project
@@ -52,8 +52,6 @@ The script sends a small fixed set of questions to the agent. For each one it ch
 
 - As this is a PoC, further possbile steps:-
         -- The evaluation set (to add it with better context based) is small and its checks are keyword based.
-        
         -- To ingest real documents, because the knowledge graph is small and written by hand.
-
         -- Probably, might additional tools.
 
