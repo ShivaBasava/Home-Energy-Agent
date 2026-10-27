@@ -25,6 +25,7 @@ Later a LangGraph agent running on Ollama discovers and calls the tools.
 | Graph, graph store | rdflib graph (`data/kg.ttl`), SPARQL & name-resolving lookups |
 | Compute, calculation code | Simplified PV yield function |
 | Evaluation | `evaluate.py` |
+| tests/ | tool tests (via pytest) |
 
 If one is interested in understanding on design of mcp, go-through `mcp_server.py` for the current tool list and [MCP_NOTES.md](docs/MCP_NOTES.md) for notes.
 
@@ -43,6 +44,16 @@ python evaluate.py
 ```
 
 The script sends a small fixed set of questions to the agent. For each one it checks that the expected tool was called and that the answer contains (or avoids) certain terms, then writes `results/results.md`. These are simple automatic checks, not a benchmark.
+
+
+## Tests
+
+In previous step we tested the agent end-to-end and now for testing the tools.
+They run offline with no Ollama and language model. Quick, deterministic checks of the tool logic (name resolution, graph lookups, the read-only SPARQL guard, search, yield estimate).
+
+```bash
+python -m pytest -q tests
+```
 
 
 ## Key Information
